@@ -1,17 +1,8 @@
 /**
  * MyTeacher — auth.js
  *
- * Substitui os links estáticos (href="home-aluno.html") do login.html e
- * cadastro.html por chamadas reais à API do backend.
- *
- * ✅ NÃO altera o HTML nem o CSS existente.
- * ✅ Intercepta o clique nos botões e realiza a autenticação via JWT.
- *
- * Incluir DEPOIS de app.js nas páginas login.html e cadastro.html:
- *   <script src="../js/auth.js"></script>
- */
 
-const API_URL = 'http://localhost:3000/api'; // ajuste para a URL do backend em produção
+const API_URL = 'https://myteacher-backend.up.railway.app/api'; 
 
 // ─── Utilitários ──────────────────────────────────────────────────────────────
 
