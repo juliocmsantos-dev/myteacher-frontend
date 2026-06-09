@@ -1,6 +1,14 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/pages/index.html" }
-  ],
-  "cleanUrls": true
+    { "source": "/",                    "destination": "/pages/index.html" },
+    { "source": "/index.html",          "destination": "/pages/index.html" },
+    { "source": "/login.html",          "destination": "/pages/login.html" },
+    { "source": "/cadastro.html",       "destination": "/pages/cadastro.html" },
+    { "source": "/home-aluno.html",     "destination": "/pages/home-aluno.html" },
+    { "source": "/home-professor.html", "destination": "/pages/home-professor.html" },
+    { "source": "/perfil-professor.html","destination": "/pages/perfil-professor.html" },
+    { "source": "/perfil-aluno.html",   "destination": "/pages/perfil-aluno.html" },
+    { "source": "/chat.html",           "destination": "/pages/chat.html" },
+    { "source": "/aulas.html",          "destination": "/pages/aulas.html" }
+  ]
 }
