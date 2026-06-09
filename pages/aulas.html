@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyTeacher — Minhas Aulas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><div class="logo" style="font-size:18px;">MyTeacher <div class="logo-dot"></div></div></div>
+    <nav class="sidebar-nav">
+      <a class="nav-item" href="home-aluno.html"><span class="nav-icon">🏠</span> Início</a>
+      <a class="nav-item" href="chat.html"><span class="nav-icon">💬</span> Mensagens</a>
+      <a class="nav-item active"><span class="nav-icon">📅</span> Minhas Aulas</a>
+      <a class="nav-item" href="perfil-aluno.html"><span class="nav-icon">👤</span> Perfil</a>
+    </nav>
+    <div class="sidebar-user">
+      <div class="avatar sm" style="background:#dbeafe;color:#1d4ed8;">CS</div>
+      <div class="user-info"><div class="user-name">Carlos Silva</div><div class="user-role">Aluno</div></div>
+    </div>
+  </aside>
+  <main class="main-content">
+    <div class="page-header">
+      <h1>📅 Minhas Aulas</h1>
+      <p>Gerencie suas aulas agendadas e histórico</p>
+    </div>
+    <div class="tabs" style="max-width:400px;">
+      <div class="tab active" onclick="switchTab(this,'tab-futuras')">Próximas</div>
+      <div class="tab" onclick="switchTab(this,'tab-concluidas')">Concluídas</div>
+      <div class="tab" onclick="switchTab(this,'tab-canceladas')">Canceladas</div>
+    </div>
+    <div class="tab-content active" id="tab-futuras">
+      <div class="aulas-grid" id="aulas-futuras"></div>
+    </div>
+    <div class="tab-content" id="tab-concluidas">
+      <div class="aulas-grid" id="aulas-concluidas"></div>
+    </div>
+    <div class="tab-content" id="tab-canceladas">
+      <div style="padding:40px;text-align:center;color:var(--text-muted);">
+        <div style="font-size:48px;margin-bottom:12px;">🗓️</div>
+        <p>Nenhuma aula cancelada</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Modal Avaliar -->
+<div class="modal-overlay" id="modal-avaliar">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-avaliar')">✕</button>
+    <h2>⭐ Avaliar aula</h2>
+    <p style="color:var(--text-muted);font-size:14px;margin-bottom:20px;">Como foi sua aula com <strong id="modal-avaliar-nome">Prof. Ana Lima</strong>?</p>
+    <div class="form-group">
+      <label class="form-label">Nota</label>
+      <div class="star-rating" id="star-rating">
+        <span class="star" onclick="setStar(1)">★</span>
+        <span class="star" onclick="setStar(2)">★</span>
+        <span class="star" onclick="setStar(3)">★</span>
+        <span class="star" onclick="setStar(4)">★</span>
+        <span class="star active" onclick="setStar(5)">★</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Comentário</label>
+      <textarea class="form-input" placeholder="Descreva sua experiência..." style="min-height:100px;">Professor muito atencioso e explicou muito bem os exercícios!</textarea>
+    </div>
+    <button class="btn btn-primary" style="width:100%;justify-content:center;padding:12px;" onclick="closeModal('modal-avaliar');alert('✅ Avaliação enviada! Obrigado pelo feedback.')">Enviar avaliação</button>
+  </div>
+</div>
+
+<script src="../js/data.js"></script>
+<script src="../js/aulas.js"></script>
+<script src="../js/app.js"></script>
+<script>
+  renderAulas();
+</script>
+</body>
+</html>

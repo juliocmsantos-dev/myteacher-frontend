@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyTeacher — Encontrar Professores</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+
+<div class="app-layout">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo" style="font-size:18px;">MyTeacher <div class="logo-dot"></div></div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-section-title">Menu</div>
+        <a class="nav-item active" href="home-aluno.html"><span class="nav-icon">🏠</span> Início</a>
+        <a class="nav-item" href="chat.html"><span class="nav-icon">💬</span> Mensagens <span class="nav-badge">3</span></a>
+        <a class="nav-item" href="aulas.html"><span class="nav-icon">📅</span> Minhas Aulas</a>
+        <a class="nav-item" href="perfil-aluno.html"><span class="nav-icon">👤</span> Meu Perfil</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">Matérias populares</div>
+        <a class="nav-item" onclick="filterSubject('Matemática')"><span class="nav-icon">🔢</span> Matemática</a>
+        <a class="nav-item" onclick="filterSubject('Português')"><span class="nav-icon">📖</span> Português</a>
+        <a class="nav-item" onclick="filterSubject('Física')"><span class="nav-icon">⚡</span> Física</a>
+        <a class="nav-item" onclick="filterSubject('Inglês')"><span class="nav-icon">🌐</span> Inglês</a>
+      </div>
+    </nav>
+    <div class="sidebar-user">
+      <div class="avatar sm" style="background:#dbeafe;color:#1d4ed8;">CS</div>
+      <div class="user-info">
+        <div class="user-name">Carlos Silva</div>
+        <div class="user-role">Aluno · 8º ano</div>
+      </div>
+      <span style="cursor:pointer;color:var(--text-muted);font-size:16px;"><a href="index.html" style="text-decoration:none;color:inherit;">↩</a></span>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main-content">
+    <div class="page-header">
+      <h1>Encontre seu professor 👋</h1>
+      <p>Olá, Carlos! Que matéria quer estudar hoje?</p>
+    </div>
+
+    <div class="search-bar">
+      <div class="search-input">
+        <span class="icon">🔍</span>
+        <input type="text" placeholder="Buscar professor, matéria..." id="searchInput" oninput="renderTeachers()">
+      </div>
+      <button class="btn btn-primary">Buscar</button>
+    </div>
+
+    <div class="filters-row">
+      <span style="font-size:13px;font-weight:600;color:var(--text-muted);">Matéria:</span>
+      <div class="filter-chip active" onclick="setFilter(this,'subject','')" data-val="">Todas</div>
+      <div class="filter-chip" onclick="setFilter(this,'subject','Matemática')" data-val="Matemática">🔢 Matemática</div>
+      <div class="filter-chip" onclick="setFilter(this,'subject','Português')" data-val="Português">📖 Português</div>
+      <div class="filter-chip" onclick="setFilter(this,'subject','Física')" data-val="Física">⚡ Física</div>
+      <div class="filter-chip" onclick="setFilter(this,'subject','Química')" data-val="Química">🧪 Química</div>
+      <div class="filter-chip" onclick="setFilter(this,'subject','Inglês')" data-val="Inglês">🌐 Inglês</div>
+      <div class="filter-chip" onclick="setFilter(this,'subject','História')" data-val="História">🏛️ História</div>
+      <div style="border-left:1px solid var(--border);height:20px;margin:0 4px;"></div>
+      <div class="filter-chip">
+        <select onchange="setFilterVal('modality',this.value)" style="font-weight:500;">
+          <option value="">🖥️ Modalidade</option>
+          <option value="Online">Online</option>
+          <option value="Presencial">Presencial</option>
+        </select>
+      </div>
+      <div class="filter-chip">
+        <select onchange="setFilterVal('sort',this.value)">
+          <option value="">↕ Ordenar</option>
+          <option value="price_asc">Menor preço</option>
+          <option value="price_desc">Maior preço</option>
+          <option value="rating">Melhor avaliação</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="teachers-grid" id="teachers-grid"></div>
+  </main>
+</div>
+
+<!-- Modal Agendar -->
+<div class="modal-overlay" id="modal-agendar">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-agendar')">✕</button>
+    <h2>📅 Solicitar aula</h2>
+    <p style="color:var(--text-muted);font-size:14px;margin-bottom:20px;">Envie uma proposta para o professor</p>
+    <div class="form-group">
+      <label class="form-label">Matéria</label>
+      <select class="form-input">
+        <option>Matemática</option><option>Física</option><option>Química</option><option>Português</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Data</label>
+        <input type="date" class="form-input" value="2026-06-10">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Horário</label>
+        <input type="time" class="form-input" value="19:00">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Valor combinado</label>
+      <input class="form-input" placeholder="R$ 60,00" value="R$ 60,00">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Mensagem (opcional)</label>
+      <textarea class="form-input" placeholder="Descreva o que precisa aprender..."></textarea>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:4px;">
+      <button class="btn btn-ghost" style="flex:1;justify-content:center;" onclick="closeModal('modal-agendar')">Cancelar</button>
+      <button class="btn btn-primary" style="flex:1;justify-content:center;" onclick="closeModal('modal-agendar');alert('✅ Solicitação enviada! O professor irá responder em breve.')">Enviar solicitação</button>
+    </div>
+  </div>
+</div>
+
+<script src="../js/data.js"></script>
+<script src="../js/teachers.js"></script>
+<script src="../js/app.js"></script>
+<script>
+  renderTeachers();
+</script>
+</body>
+</html>

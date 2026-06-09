@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyTeacher — Criar conta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+
+<div class="auth-page">
+  <div class="auth-left">
+    <div class="logo">MyTeacher <div class="logo-dot" style="background:#f97316"></div></div>
+    <h2>Comece a aprender ou a ensinar!</h2>
+    <p>Crie sua conta gratuitamente e faça parte da maior plataforma de aulas particulares.</p>
+  </div>
+  <div class="auth-right">
+    <div class="auth-form">
+      <h2>Criar conta</h2>
+      <p>Já tem conta? <a href="login.html">Faça login</a></p>
+      <p style="font-size:13px;color:var(--text-muted);font-weight:600;margin-bottom:8px;">Você é:</p>
+      <div class="role-picker">
+        <div class="role-card selected" onclick="selectRole(this,'aluno')">
+          <div class="role-icon">🧑‍🎓</div>
+          <div class="role-name">Aluno</div>
+          <div class="role-sub">Buscar professores</div>
+        </div>
+        <div class="role-card" onclick="selectRole(this,'professor')">
+          <div class="role-icon">👩‍🏫</div>
+          <div class="role-name">Professor</div>
+          <div class="role-sub">Oferecer aulas</div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Nome completo</label>
+          <input class="form-input" placeholder="João Silva">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Cidade</label>
+          <input class="form-input" placeholder="São Paulo, SP">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-input" placeholder="joao@email.com">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Senha</label>
+          <input type="password" class="form-input" placeholder="••••••••">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Confirmar senha</label>
+          <input type="password" class="form-input" placeholder="••••••••">
+        </div>
+      </div>
+      <a class="btn btn-primary" style="width:100%;padding:13px;font-size:15px;justify-content:center;border-radius:10px;display:flex;">Criar minha conta →</a>
+      <div class="auth-link" style="margin-top:12px"><a href="index.html">← Voltar ao início</a></div>
+    </div>
+  </div>
+</div>
+
+<script src="../js/app.js"></script>
+<script src="../js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyTeacher — Meu Perfil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><div class="logo" style="font-size:18px;">MyTeacher <div class="logo-dot"></div></div></div>
+    <nav class="sidebar-nav">
+      <a class="nav-item" href="home-aluno.html"><span class="nav-icon">🏠</span> Início</a>
+      <a class="nav-item" href="chat.html"><span class="nav-icon">💬</span> Mensagens</a>
+      <a class="nav-item" href="aulas.html"><span class="nav-icon">📅</span> Aulas</a>
+      <a class="nav-item active"><span class="nav-icon">👤</span> Meu Perfil</a>
+    </nav>
+    <div class="sidebar-user">
+      <div class="avatar sm" style="background:#dbeafe;color:#1d4ed8;">CS</div>
+      <div class="user-info"><div class="user-name">Carlos Silva</div><div class="user-role">Aluno</div></div>
+    </div>
+  </aside>
+  <main class="main-content">
+    <div class="page-header"><h1>Meu Perfil</h1><p>Gerencie suas informações</p></div>
+    <div style="max-width:600px;">
+      <div class="profile-card" style="margin-bottom:20px;">
+        <div class="profile-cover"></div>
+        <div class="profile-info">
+          <div class="profile-avatar-wrap"><div class="avatar lg" style="background:#dbeafe;color:#1d4ed8;">CS</div></div>
+          <div class="profile-name">Carlos Silva</div>
+          <div class="profile-subject">Aluno · 8º ano</div>
+          <div class="tag-list">
+            <span class="badge badge-primary">Matemática</span>
+            <span class="badge badge-primary">Física</span>
+            <span class="badge badge-primary">Química</span>
+          </div>
+        </div>
+      </div>
+      <div style="background:var(--white);border-radius:var(--radius);border:1px solid var(--border);padding:24px;">
+        <h3 style="margin-bottom:20px;font-size:17px;">Editar informações</h3>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Nome</label><input class="form-input" value="Carlos Silva"></div>
+          <div class="form-group"><label class="form-label">Cidade</label><input class="form-input" value="São Paulo, SP"></div>
+        </div>
+        <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" value="carlos@email.com"></div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Série escolar</label>
+            <select class="form-input">
+              <option>8º ano</option><option>9º ano</option><option>1º EM</option><option>2º EM</option><option>3º EM</option>
+            </select>
+          </div>
+          <div class="form-group"><label class="form-label">Escola (opcional)</label><input class="form-input" placeholder="Nome da escola"></div>
+        </div>
+        <div class="form-group"><label class="form-label">Biografia</label><textarea class="form-input">Estudante do ensino fundamental buscando reforço em exatas.</textarea></div>
+        <button class="btn btn-primary" style="padding:11px 24px;">💾 Salvar alterações</button>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

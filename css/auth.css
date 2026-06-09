@@ -1,0 +1,31 @@
+/* ===================== AUTH (LOGIN / CADASTRO) ===================== */
+.auth-page { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; }
+
+.auth-left { background: linear-gradient(145deg, #1a56db, #2563eb); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 60px; color: white; }
+.auth-left .logo { color: white; font-size: 28px; margin-bottom: 32px; }
+.auth-left h2 { font-size: 36px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; text-align: center; }
+.auth-left p { font-size: 15px; opacity: .8; text-align: center; line-height: 1.6; }
+.auth-left-cards { display: flex; flex-direction: column; gap: 12px; margin-top: 40px; width: 100%; max-width: 320px; }
+.auth-mini-card { background: rgba(255,255,255,.12); border-radius: var(--radius-sm); padding: 14px 16px; display: flex; align-items: center; gap: 12px; }
+.auth-mini-card .icon-circle { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,.2); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+.auth-mini-card p { font-size: 13px; opacity: .9; }
+
+.auth-right { display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 60px; background: var(--white); }
+.auth-form { width: 100%; max-width: 400px; }
+.auth-form h2 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+.auth-form p { color: var(--text-muted); font-size: 15px; margin-bottom: 28px; }
+
+.role-picker { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+.role-card { border: 2px solid var(--border); border-radius: var(--radius-sm); padding: 16px 12px; text-align: center; cursor: pointer; transition: all .2s; }
+.role-card:hover { border-color: var(--primary); background: var(--primary-light); }
+.role-card.selected { border-color: var(--primary); background: var(--primary-light); }
+.role-card .role-icon { font-size: 28px; margin-bottom: 6px; }
+.role-card .role-name { font-size: 14px; font-weight: 600; color: var(--text); }
+.role-card .role-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+.divider-text { text-align: center; position: relative; margin: 20px 0; }
+.divider-text::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: var(--border); }
+.divider-text span { background: var(--white); padding: 0 12px; position: relative; font-size: 13px; color: var(--text-muted); }
+
+.auth-link { text-align: center; font-size: 14px; color: var(--text-muted); margin-top: 20px; }
+.auth-link a { color: var(--primary); font-weight: 600; cursor: pointer; }

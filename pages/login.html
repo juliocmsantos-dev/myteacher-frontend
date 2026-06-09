@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyTeacher — Entrar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+
+<div class="auth-page">
+  <div class="auth-left">
+    <div class="logo">MyTeacher <div class="logo-dot" style="background:#f97316"></div></div>
+    <h2>Bem-vindo de volta!</h2>
+    <p>Acesse sua conta e continue sua jornada de aprendizado.</p>
+    <div class="auth-left-cards">
+      <div class="auth-mini-card"><div class="icon-circle">📚</div><p>+1.200 professores disponíveis agora</p></div>
+      <div class="auth-mini-card"><div class="icon-circle">💬</div><p>Chat em tempo real com Socket.IO</p></div>
+      <div class="auth-mini-card"><div class="icon-circle">⭐</div><p>Sistema de avaliações verificadas</p></div>
+    </div>
+  </div>
+  <div class="auth-right">
+    <div class="auth-form">
+      <h2>Entrar</h2>
+      <p>Não tem conta? <a href="cadastro.html">Cadastre-se grátis</a></p>
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-input" placeholder="seu@email.com" value="aluno@demo.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Senha</label>
+        <input type="password" class="form-input" placeholder="••••••••" value="123456">
+      </div>
+      <a class="btn btn-primary" style="width:100%;padding:13px;font-size:15px;justify-content:center;border-radius:10px;margin-top:4px;display:flex;">Entrar →</a>
+      <div class="divider-text"><span>ou entre como</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <a href="home-aluno.html" class="btn btn-ghost" style="justify-content:center;">👨‍🎓 Aluno Demo</a>
+        <a href="home-professor.html" class="btn btn-ghost" style="justify-content:center;">👩‍🏫 Professor Demo</a>
+      </div>
+      <div class="auth-link"><a href="index.html">← Voltar ao início</a></div>
+    </div>
+  </div>
+</div>
+
+<script src="../js/app.js"></script>
+<script src="../js/auth.js"></script>
+</body>
+</html>

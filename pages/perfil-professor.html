@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyTeacher — Perfil do Professor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><div class="logo" style="font-size:18px;">MyTeacher <div class="logo-dot"></div></div></div>
+    <nav class="sidebar-nav">
+      <a class="nav-item" href="home-aluno.html"><span class="nav-icon">←</span> Voltar</a>
+      <a class="nav-item" href="chat.html"><span class="nav-icon">💬</span> Mensagens</a>
+      <a class="nav-item" href="aulas.html"><span class="nav-icon">📅</span> Minhas Aulas</a>
+    </nav>
+    <div class="sidebar-user">
+      <div class="avatar sm" style="background:#dbeafe;color:#1d4ed8;">CS</div>
+      <div class="user-info"><div class="user-name">Carlos Silva</div><div class="user-role">Aluno</div></div>
+    </div>
+  </aside>
+  <main class="main-content" id="teacher-profile-content">
+    <!-- Preenchido pelo JS via data.js + teachers.js -->
+    <p style="color:var(--text-muted);">Carregando perfil...</p>
+  </main>
+</div>
+
+<!-- Modal Agendar -->
+<div class="modal-overlay" id="modal-agendar">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-agendar')">✕</button>
+    <h2>📅 Solicitar aula</h2>
+    <p style="color:var(--text-muted);font-size:14px;margin-bottom:20px;">Envie uma proposta para o professor</p>
+    <div class="form-group">
+      <label class="form-label">Matéria</label>
+      <select class="form-input">
+        <option>Matemática</option><option>Física</option><option>Química</option><option>Português</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Data</label>
+        <input type="date" class="form-input" value="2026-06-10">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Horário</label>
+        <input type="time" class="form-input" value="19:00">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Valor combinado</label>
+      <input class="form-input" placeholder="R$ 60,00" value="R$ 60,00">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Mensagem (opcional)</label>
+      <textarea class="form-input" placeholder="Descreva o que precisa aprender..."></textarea>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:4px;">
+      <button class="btn btn-ghost" style="flex:1;justify-content:center;" onclick="closeModal('modal-agendar')">Cancelar</button>
+      <button class="btn btn-primary" style="flex:1;justify-content:center;" onclick="closeModal('modal-agendar');alert('✅ Solicitação enviada!')">Enviar solicitação</button>
+    </div>
+  </div>
+</div>
+
+<script src="../js/data.js"></script>
+<script src="../js/teachers.js"></script>
+<script src="../js/app.js"></script>
+<script>
+  // Lê o ID do professor da URL: perfil-professor.html?id=1
+  const params = new URLSearchParams(window.location.search);
+  const id = parseInt(params.get('id')) || 1;
+  openTeacher(id);
+</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyTeacher — Mensagens</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/chat.css">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><div class="logo" style="font-size:18px;">MyTeacher <div class="logo-dot"></div></div></div>
+    <nav class="sidebar-nav">
+      <a class="nav-item" href="home-aluno.html"><span class="nav-icon">🏠</span> Início</a>
+      <a class="nav-item active"><span class="nav-icon">💬</span> Mensagens</a>
+      <a class="nav-item" href="aulas.html"><span class="nav-icon">📅</span> Aulas</a>
+      <a class="nav-item" href="perfil-aluno.html"><span class="nav-icon">👤</span> Perfil</a>
+    </nav>
+    <div class="sidebar-user">
+      <div class="avatar sm" style="background:#dbeafe;color:#1d4ed8;">CS</div>
+      <div class="user-info"><div class="user-name">Carlos Silva</div><div class="user-role">Aluno</div></div>
+    </div>
+  </aside>
+  <main class="main-content" style="padding:24px;">
+    <div class="chat-layout">
+      <!-- Lista de conversas -->
+      <div class="chat-list">
+        <div class="chat-list-header">
+          <h3>Conversas</h3>
+          <div class="chat-search">
+            <span style="font-size:14px;">🔍</span>
+            <input placeholder="Buscar conversa...">
+          </div>
+        </div>
+        <div id="chat-list-items"></div>
+      </div>
+      <!-- Janela do chat -->
+      <div class="chat-window">
+        <div class="chat-header">
+          <div class="avatar sm" id="chat-av" style="background:#dbeafe;color:#1d4ed8;">AL</div>
+          <div class="info">
+            <div class="name" id="chat-name">Prof. Ana Lima</div>
+            <div class="status" id="chat-status">Online agora</div>
+          </div>
+          <button class="btn btn-primary" style="padding:7px 16px;font-size:13px;" onclick="openModal('modal-agendar')">📅 Agendar aula</button>
+        </div>
+        <div class="chat-messages" id="chat-messages"></div>
+        <div class="chat-input-area">
+          <button class="icon-btn" title="Enviar imagem" onclick="simulateImg()">🖼️</button>
+          <button class="icon-btn" title="Gravar áudio" onclick="simulateAudio()">🎙️</button>
+          <input class="chat-input" id="chat-input-field" placeholder="Digite uma mensagem..." onkeydown="if(event.key==='Enter')sendMsg()">
+          <button class="icon-btn send" onclick="sendMsg()">➤</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Modal Agendar -->
+<div class="modal-overlay" id="modal-agendar">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-agendar')">✕</button>
+    <h2>📅 Solicitar aula</h2>
+    <p style="color:var(--text-muted);font-size:14px;margin-bottom:20px;">Envie uma proposta para o professor</p>
+    <div class="form-group">
+      <label class="form-label">Matéria</label>
+      <select class="form-input">
+        <option>Matemática</option><option>Física</option><option>Química</option><option>Português</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Data</label>
+        <input type="date" class="form-input" value="2026-06-10">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Horário</label>
+        <input type="time" class="form-input" value="19:00">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Valor combinado</label>
+      <input class="form-input" value="R$ 60,00">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Mensagem (opcional)</label>
+      <textarea class="form-input" placeholder="Descreva o que precisa aprender..."></textarea>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:4px;">
+      <button class="btn btn-ghost" style="flex:1;justify-content:center;" onclick="closeModal('modal-agendar')">Cancelar</button>
+      <button class="btn btn-primary" style="flex:1;justify-content:center;" onclick="closeModal('modal-agendar');alert('✅ Solicitação enviada!')">Enviar solicitação</button>
+    </div>
+  </div>
+</div>
+
+<script src="../js/data.js"></script>
+<script src="../js/chat.js"></script>
+<script src="../js/app.js"></script>
+<script>
+  renderChat();
+</script>
+</body>
+</html>
